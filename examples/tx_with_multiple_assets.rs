@@ -211,6 +211,20 @@ fn main() -> Result<(), Error> {
         )
     );
 
+    println!(
+        "verify signature: {}",
+        aggsig::verify_single(
+            &secp,
+            &signature,
+            &message,
+            None,
+            &pk_sum,
+            Some(&pk_sum),
+            None,
+            false
+        )
+    );
+
     // 15. check equal kernel_pk == pk_sum
     println!(
         "signature publick key eq committment excess: {}",
